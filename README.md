@@ -13,6 +13,15 @@ cd ansible-playbook-bootstrap
 ansible-playbook \
   --ask-pass \
   --ask-become-pass \
+  --user root \
+  -i inventory \
+  hosts_allow_deny.yml
+```
+
+```
+ansible-playbook \
+  --ask-pass \
+  --ask-become-pass \
   -i inventory \
   users.yml
 ```
