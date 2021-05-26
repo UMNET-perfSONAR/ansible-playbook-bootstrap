@@ -10,6 +10,15 @@ cd ansible-playbook-bootstrap
 ```
 
 ```
+ansible all \
+  --ask-pass \
+  --ask-become-pass \
+  --user root \
+  -i inventory \
+  -m ping
+```
+
+```
 ansible-playbook \
   --ask-pass \
   --ask-become-pass \
