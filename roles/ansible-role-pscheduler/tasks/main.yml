@@ -1,0 +1,52 @@
+- name: Make directory
+  command: mkdir plugin-dev-env
+  become: yes
+  become_user: rohithk
+  become_method: su
+
+- name: clone the repo
+  command: "git clone https://github.com/perfsonar/pscheduler.git"
+  args:
+    chdir: plugin-dev-env/
+  become: yes
+  become_user: rohithk
+  become_method: su
+
+
+- name: checkout correct branch (4.4.0)
+  command: "git checkout 4.4.0"
+  args:
+    chdir: plugin-dev-env/pscheduler
+  become: yes
+  become_user: rohithk
+  become_method: su
+
+
+- name: copy all to dev cluster
+  command: "cp -r pscheduler/scripts/vagrant/dev-cluster/ ."
+  args:
+    chdir: plugin-dev-env/
+  become: yes
+  become_user: rohithk
+  become_method: su
+
+
+- name: configure ansible part a
+  shell: "ansible-galaxy collection install community.general"
+  become: yes
+  become_method: su
+
+- name: configure ansible part b
+  shell: "ansible-galaxy collection install ansible.netcommon"
+  become: yes
+  become_method: su
+
+- name: configure python
+  yum:
+    name: python-netaddr
+  become: yes
+  become_method: su
+
+
+
+

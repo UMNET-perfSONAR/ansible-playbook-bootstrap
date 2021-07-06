@@ -1,0 +1,12 @@
+# perfsonar.yml main perfSONAR config
+
+- name: bootstrap
+  hosts:
+    - all
+  roles:
+    - ansible-role-bootstrap-dell
+    #- ansible-role-ansible
+    #- ansible-role-vagrant
+    #- ansible-role-virtualbox
+    #- ansible-role-pscheduler
+

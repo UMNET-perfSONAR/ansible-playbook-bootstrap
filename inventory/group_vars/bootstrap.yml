@@ -1,0 +1,17 @@
+bootstrap_jumpboxes: 141.211.160.28
+
+#development_user_group:
+#  users: 
+#    user1:
+#      uniqname: maxwelli
+
+#users:
+#  - user: maxwelli
+    #ssh_key: onetwothree
+    #key: https://github.com/UMNET-perfSONAR/plugin-development-ssh-keys/blob/main/maxwelli.key
+  #- user: epcjr
+    #key: fourfivesix
+
+
+    
+

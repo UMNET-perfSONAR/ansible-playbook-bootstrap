@@ -18,6 +18,13 @@ ansible all \
   -m ping
 ```
 
+Get the required roles (note that we ignore errors so we can run this multiple times):
+
+```
+ansible-galaxy install -r  requirements.yml --ignore-errors
+```
+
+
 ```
 ansible-playbook \
   --ask-pass \
@@ -34,3 +41,10 @@ ansible-playbook \
   -i inventory \
   users.yml
 ```
+
+
+
+
+
+
+
