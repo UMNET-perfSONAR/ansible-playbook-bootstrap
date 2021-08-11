@@ -1,50 +1,44 @@
 # ansible-playbook-bootstrap
 
 On the Ansible Controller:
-
-Clone the playbook
+Clone the playbook.
 
 ```
 git clone https://github.com/UMNET-perfSONAR/ansible-playbook-bootstrap.git
 cd ansible-playbook-bootstrap
 ```
 
+Get the required roles.
+
+```
+ansible-galaxy install -f -r requirements.yml --ignore-errors
+```
+
+Now either create an inventory or use an existing one.
+
+```
+mkdir -p inventory/group_vars/all/
+cp roles/ansible-role-bootstrap-dell/defaults/main.yml \
+  inventory/group_vars/all/bootstrap.yml
+vi inventory/group_vars/all/bootstrap.yml
+```
+
+Ansible ping the targets.
+
 ```
 ansible all \
-  --ask-pass \
-  --ask-become-pass \
   --user root \
-  -i inventory \
+  --ask-pass \
+  --inventory inventory \
   -m ping
 ```
 
-Get the required roles (note that we ignore errors so we can run this multiple times):
-
-```
-ansible-galaxy install -r  requirements.yml --ignore-errors
-```
-
+Execute Ansible script to bootstrap the targets.
 
 ```
 ansible-playbook \
-  --ask-pass \
-  --ask-become-pass \
   --user root \
-  -i inventory \
-  hosts_allow_deny.yml
-```
-
-```
-ansible-playbook \
   --ask-pass \
-  --ask-become-pass \
-  -i inventory \
-  users.yml
+  --inventory inventory \
+  bootstrap.yml
 ```
-
-
-
-
-
-
-
