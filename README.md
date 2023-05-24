@@ -42,3 +42,46 @@ ansible-playbook \
   --inventory inventory \
   bootstrap.yml
 ```
+
+```
+ansible-playbook \
+  --inventory ../ansible-playbook-perfsonar/ansible-umich-perfsonar-core/inventory \
+  --user root \
+  --ask-pass \
+  bootstrap.yml \
+  --limit 198.111.224.149
+```
+
+  --limit 198.111.224.149
+
+```
+ansible-playbook \
+  --inventory ../ansible-playbook-perfsonar/ansible-umich-perfsonar-core/inventory \
+  --become \
+  --become-method su \
+  --become-user root \
+  --ask-become-pass \
+  bootstrap.yml \
+  --limit 141.213.137.132
+```
+  --limit 198.111.224.149
+
+RPi Bootstrap:
+install ubuntu 18
+ssh ubuntu@ip_addr
+change password
+sudo -s
+passwd
+
+```
+ansible-playbook \
+  --inventory ../ansible-playbook-perfsonar/ansible-umich-perfsonar-core/inventory \
+  --user ubuntu \
+  --ask-pass \
+  --become \
+  --become-method sudo \
+  --become-user root \
+  --ask-become-pass \
+  bootstrap.yml \
+  --limit 198.111.226.185
+```
