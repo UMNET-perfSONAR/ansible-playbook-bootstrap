@@ -26,6 +26,29 @@ vi inventory/group_vars/all/bootstrap.yml
 Ansible ping the targets.
 
 ```
+ansible-playbook \
+  --limit ps_perfsonar_server \
+  --ask-pass \
+  --ask-become-pass \
+  --become \
+  --become-user root \
+  --become-method sudo \
+  --inventory ../ansible-inventory-perfsonar-umich-core/inventory \
+  bootstrap.yml
+```
+
+```
+ansible ps_perfsonar_server \
+  --ask-pass \
+  --ask-become-pass \
+  --become \
+  --become-user root \
+  --become-method sudo \
+  --inventory ../ansible-inventory-perfsonar-umich-core/inventory \
+  -m ping
+```
+
+```
 ansible all \
   --user root \
   --ask-pass \

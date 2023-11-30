@@ -1,11 +1,13 @@
-# perfsonar.yml main perfSONAR config
+# bootstrap.yml
 
-- name: bootstrap
+- name: bootstrap bare-metal
   hosts:
-    - all
+    - bare-metal
   roles:
     - ansible-role-bootstrap-dell
-    #- ansible-role-ansible
-    #- ansible-role-vagrant
-    #- ansible-role-virtualbox
-    #- ansible-role-pscheduler
+
+- name: bootstrap MiServer
+  hosts:
+    - miserver
+  roles:
+    - ansible-role-bootstrap-miserver
