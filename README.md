@@ -85,3 +85,16 @@ ansible-playbook \
   bootstrap.yml \
   --limit 198.111.226.185
 ```
+
+```
+ansible-playbook \
+  --inventory ../ansible-playbook-perfsonar/ansible-umich-perfsonar-core/inventory \
+  --become \
+  --become-method sudo \
+  --become-user root \
+  --ask-become-pass \
+  --ask-vault-pass \
+  --check \
+  bootstrap.yml \
+  --limit dells
+```
