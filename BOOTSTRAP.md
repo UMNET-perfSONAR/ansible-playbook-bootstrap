@@ -6,11 +6,18 @@ ssh 198.111.224.155
 ansible ilab-hosts -m ping
 
 ansible \
-  ilab-hosts \
+  bare-metal \
   --ask-pass \
-  -u root \
-  -i ../ansible-playbook-perfsonar/ansible-inventory-netbasilisk-perfsonar/inventory \
+  -u ubuntu \
+  -i ../ansible-inventory-pssid-ilab/inventory \
   -m ping
+
+ansible-playbook \
+  --ask-pass \
+  --user ubuntu \
+  --inventory ../ansible-inventory-pssid-ilab/inventory \
+  --limit bare-metal \
+  bootstrap.yml
 
 ansible-playbook \
   --ask-pass \
