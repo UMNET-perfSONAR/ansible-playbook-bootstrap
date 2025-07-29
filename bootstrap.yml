@@ -4,4 +4,4 @@
   hosts:
     - bare-metal
   roles:
-    - ansible-role-bootstrap-dell
+    - ansible-role-bootstrap-hardware
